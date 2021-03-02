@@ -9,9 +9,13 @@ app = Flask("__main__") # also can ve Flask(__name__)
 def index():
   return render_template("index.htm")
 
-@app.route('/user/int:<id>')
+@app.route('/user/<int:id>')
 def profile(user:int):
   return f"Hello The User with {user} ID"
+
+@app.route('/pooia/<float:me>')
+def pooia(me:float):
+  return f'{me}'
 
 @app.route("/login",methods=['GET','POST'])
 def login():
